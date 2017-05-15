@@ -27,13 +27,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MV5-R4-ith">
-                                <rect key="frame" x="158" y="113" width="98" height="30"/>
-                                <state key="normal" title="Next Question"/>
-                                <connections>
-                                    <action selector="showNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkK-5D-U6s"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-NE-q22">
+                                <rect key="frame" x="195" y="84" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-oe-JKj">
                                 <rect key="frame" x="195" y="304" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -47,22 +46,34 @@
                                     <action selector="showAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r7X-yb-soW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MV5-R4-ith">
+                                <rect key="frame" x="158" y="113" width="98" height="30"/>
+                                <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="showNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkK-5D-U6s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RWd-oe-JKj" firstAttribute="centerX" secondItem="MV5-R4-ith" secondAttribute="centerX" id="4qY-ie-WJ3"/>
                             <constraint firstItem="LG7-F3-Jdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6WR-Ej-NEs"/>
+                            <constraint firstItem="jgQ-NE-q22" firstAttribute="top" secondItem="LG7-F3-Jdb" secondAttribute="top" id="6bj-qc-vPy"/>
                             <constraint firstItem="SqJ-lI-MQV" firstAttribute="centerX" secondItem="MV5-R4-ith" secondAttribute="centerX" id="ISl-To-a7N"/>
                             <constraint firstItem="SqJ-lI-MQV" firstAttribute="top" secondItem="RWd-oe-JKj" secondAttribute="bottom" constant="8" id="Lgu-0P-beM"/>
-                            <constraint firstItem="LG7-F3-Jdb" firstAttribute="centerX" secondItem="MV5-R4-ith" secondAttribute="centerX" id="Q15-4h-7po"/>
+                            <constraint firstItem="jgQ-NE-q22" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pf9-4j-ELa"/>
                             <constraint firstItem="LG7-F3-Jdb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="RHT-jX-eY7"/>
+                            <constraint firstItem="MV5-R4-ith" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gID-O5-EF4"/>
                             <constraint firstItem="MV5-R4-ith" firstAttribute="top" secondItem="LG7-F3-Jdb" secondAttribute="bottom" constant="8" id="vrz-rx-7FD"/>
                             <constraint firstItem="RWd-oe-JKj" firstAttribute="top" secondItem="MV5-R4-ith" secondAttribute="bottom" constant="161" id="w8a-fh-XyI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="RWd-oe-JKj" id="uY8-f9-cbf"/>
-                        <outlet property="questionLabel" destination="LG7-F3-Jdb" id="mnh-jZ-X46"/>
+                        <outlet property="currentQuestionLabel" destination="LG7-F3-Jdb" id="UK3-MW-gbG"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="6WR-Ej-NEs" id="7Uc-O0-z0H"/>
+                        <outlet property="nextQuestionLabel" destination="jgQ-NE-q22" id="W67-oJ-RbN"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="Pf9-4j-ELa" id="ezY-zG-Cx9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
