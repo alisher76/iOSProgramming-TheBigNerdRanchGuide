@@ -45,6 +45,8 @@ class ItemsViewController: UITableViewController {
         
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 65
     }
     
     
@@ -53,12 +55,14 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         
         let item = itemStore.allItems[indexPath.row]
         
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollar)"
+        cell.nameLabel?.text = item.name
+        cell.serialNumberLabel?.text = item.serialNumber
+        cell.valueLable.text = "$\(item.valueInDollar)"
+        
         
         return cell
     }

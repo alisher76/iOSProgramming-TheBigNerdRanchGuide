@@ -16,6 +16,7 @@
 		AC2A47701ECA2F170022E991 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A476F1ECA2F170022E991 /* ItemsViewController.swift */; };
 		AC2A47721ECA32E70022E991 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A47711ECA32E70022E991 /* ItemStore.swift */; };
 		AC2A47741ECA33430022E991 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A47731ECA33430022E991 /* Item.swift */; };
+		AC2A47761ECA57070022E991 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A47751ECA57070022E991 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AC2A476F1ECA2F170022E991 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		AC2A47711ECA32E70022E991 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		AC2A47731ECA33430022E991 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AC2A47751ECA57070022E991 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				AC2A476F1ECA2F170022E991 /* ItemsViewController.swift */,
 				AC2A47731ECA33430022E991 /* Item.swift */,
 				AC2A47711ECA32E70022E991 /* ItemStore.swift */,
+				AC2A47751ECA57070022E991 /* ItemCell.swift */,
 				AC2A47451ECA2C970022E991 /* Main.storyboard */,
 				AC2A47481ECA2C970022E991 /* Assets.xcassets */,
 				AC2A474A1ECA2C970022E991 /* LaunchScreen.storyboard */,
@@ -272,6 +275,7 @@
 				AC2A47701ECA2F170022E991 /* ItemsViewController.swift in Sources */,
 				AC2A47421ECA2C970022E991 /* AppDelegate.swift in Sources */,
 				AC2A47721ECA32E70022E991 /* ItemStore.swift in Sources */,
+				AC2A47761ECA57070022E991 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +528,7 @@
 				AC2A47681ECA2C980022E991 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC2A47691ECA2C980022E991 /* Build configuration list for PBXNativeTarget "Homepwner:Chapter 10...18Tests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +537,7 @@
 				AC2A476B1ECA2C980022E991 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC2A476C1ECA2C980022E991 /* Build configuration list for PBXNativeTarget "Homepwner:Chapter 10...18UITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +546,7 @@
 				AC2A476E1ECA2C980022E991 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
