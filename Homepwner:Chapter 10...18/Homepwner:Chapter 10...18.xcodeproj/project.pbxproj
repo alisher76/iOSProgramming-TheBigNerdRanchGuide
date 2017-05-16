@@ -17,6 +17,7 @@
 		AC2A47721ECA32E70022E991 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A47711ECA32E70022E991 /* ItemStore.swift */; };
 		AC2A47741ECA33430022E991 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A47731ECA33430022E991 /* Item.swift */; };
 		AC2A47761ECA57070022E991 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A47751ECA57070022E991 /* ItemCell.swift */; };
+		ACE59B911ECB53B4002B9846 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE59B901ECB53B4002B9846 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		AC2A47711ECA32E70022E991 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		AC2A47731ECA33430022E991 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AC2A47751ECA57070022E991 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		ACE59B901ECB53B4002B9846 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				AC2A47731ECA33430022E991 /* Item.swift */,
 				AC2A47711ECA32E70022E991 /* ItemStore.swift */,
 				AC2A47751ECA57070022E991 /* ItemCell.swift */,
+				ACE59B901ECB53B4002B9846 /* DetailViewController.swift */,
 				AC2A47451ECA2C970022E991 /* Main.storyboard */,
 				AC2A47481ECA2C970022E991 /* Assets.xcassets */,
 				AC2A474A1ECA2C970022E991 /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 				AC2A47741ECA33430022E991 /* Item.swift in Sources */,
 				AC2A47701ECA2F170022E991 /* ItemsViewController.swift in Sources */,
 				AC2A47421ECA2C970022E991 /* AppDelegate.swift in Sources */,
+				ACE59B911ECB53B4002B9846 /* DetailViewController.swift in Sources */,
 				AC2A47721ECA32E70022E991 /* ItemStore.swift in Sources */,
 				AC2A47761ECA57070022E991 /* ItemCell.swift in Sources */,
 			);
