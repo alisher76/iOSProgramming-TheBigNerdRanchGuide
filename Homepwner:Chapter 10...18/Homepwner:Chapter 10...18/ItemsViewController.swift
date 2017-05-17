@@ -16,9 +16,7 @@ class ItemsViewController: UITableViewController {
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem()
         if let index = itemStore.allItems.index(of: newItem) {
-        
-        let lastRow = tableView.numberOfRows(inSection: 0)
-        let indexPath = IndexPath(row: lastRow, section: 0)
+        let indexPath = IndexPath(row: index, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
