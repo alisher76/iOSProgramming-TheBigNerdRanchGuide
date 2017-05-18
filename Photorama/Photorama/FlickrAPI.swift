@@ -29,7 +29,7 @@ struct FlickrAPI {
     }()
     
     
-    static func photos(fromJSON data: Data, into context: NSManagedObjectContext) -> PhotoResult {
+    static func photos(fromJSON data: Data, into context: NSManagedObjectContext) -> PhotosResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             

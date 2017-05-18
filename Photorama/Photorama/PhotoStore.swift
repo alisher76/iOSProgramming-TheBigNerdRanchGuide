@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import CoreData
 
+enum TagsResult {
+    case success([NSManagedObject])
+    case failure(Error)
+}
+
 
 enum ImageResult {
     case success(UIImage)
@@ -20,7 +25,7 @@ enum ImageResult {
 enum PhotoError: Error {
    case imageCreationError
 }
-enum PhotoResult {
+enum PhotosResult {
     case success ([Photo])
     case failure(Error)
 }
@@ -43,34 +48,51 @@ class PhotoStore {
         return URLSession(configuration: config)
     }()
     
-    func fetchInterestingPhotosURL(completion: @escaping (PhotoResult) -> Void) {
+    func fetchInterestingPhotosURL(completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.interestingPhotosURL
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) {
             (optionalData, optionalResponce, optionalError) -> Void in
-            var result = self.processPhotosRequest(data: optionalData, error: optionalError)
             
-            if case .success = result {
-                do {
-                    try self.persistentContainer.viewContext.save()
-                }catch{
-                    result = .failure(error)
+            self.processPhotosRequest(data: optionalData, error: optionalError) {
+                (result) in
+                OperationQueue.main.addOperation {
+                    completion(result)
                 }
             }
-            
-            OperationQueue.main.addOperation {
-                completion(result)
-            }
-        }
+       }
         task.resume()
     }
     
-    private func processPhotosRequest(data: Data?, error: Error?) -> PhotoResult {
+    private func processPhotosRequest(data: Data?, error: Error?, completion: @escaping (PhotosResult) -> Void) {
         guard let jsonData = data else {
-            return .failure(error!)
+            completion(.failure(error!))
+            return
         }
         
-        return FlickrAPI.photos(fromJSON: jsonData, into: persistentContainer.viewContext)
+        self.persistentContainer.performBackgroundTask {
+            (context) in
+            let result = FlickrAPI.photos(fromJSON: jsonData, into: context)
+            
+            do {
+            try context.save()
+            }catch{
+                print("error saving CD \(error)")
+                completion(.failure(error))
+                return
+            }
+            
+            switch result {
+            case let .success(photos):
+                let photoIDs = photos.map { return $0.objectID }
+                let viewContext = self.persistentContainer.viewContext
+                let viewContextPhotos = photoIDs.map { return viewContext.object(with: $0) } as! [Photo]
+                completion(.success(viewContextPhotos))
+            case .failure(_):
+                completion(result)
+            }
+
+        }
     }
     
     private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
@@ -115,7 +137,7 @@ class PhotoStore {
         task.resume()
     }
     
-    func fetchAllPhotos(completion: @escaping (PhotoResult) -> Void) {
+    func fetchAllPhotos(completion: @escaping (PhotosResult) -> Void) {
         let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
         let sortByDateTaken = NSSortDescriptor(key: #keyPath(Photo.dateTaken), ascending: true)
         fetchRequest.sortDescriptors = [sortByDateTaken]
@@ -127,6 +149,23 @@ class PhotoStore {
                 completion(.success(allPhotos))
             }catch{
              completion(.failure(error))
+            }
+        }
+    }
+    
+    
+    func fetchAllTags(completion: @escaping (TagsResult) -> Void) {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Tag")
+        let sortByName = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortByName]
+        
+        let viewContext = persistentContainer.viewContext
+        viewContext.perform {
+            do {
+                let allTags = try fetchRequest.execute()
+                completion(.success(allTags as! [Photo]))
+            } catch {
+                completion(.failure(error))
             }
         }
     }
